@@ -1,0 +1,45 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# PyInstaller intermediate build artifacts
+build/
+dist/
+app_dist/
+*.spec.bak
+
+# Sensitive cookie files and personal credentials (Never commit credentials)
+*.txt_cookies*
+*cookies*.txt
+instagram_cookies.txt
+session.enc
+*.enc
+
+# Downloaded test media
+downloads/
+output/
+
+# Logs and runtime dumps
+*.log
+crash.log
+run_*.txt
+std_*.txt
+
+# Environments & IDEs
+.env
+.venv
+env/
+venv/
+ENV/
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS generated
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
