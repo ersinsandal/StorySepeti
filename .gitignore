@@ -8,6 +8,7 @@ build/
 dist/
 app_dist/
 *.spec.bak
+*.zip
 
 # Sensitive cookie files and personal credentials (Never commit credentials)
 *.txt_cookies*

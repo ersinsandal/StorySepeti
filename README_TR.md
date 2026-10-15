@@ -1,17 +1,17 @@
-# ⚡ StoryVault
+# ⚡ StorySepeti
 
 <div align="center">
 
-![StoryVault Banner](assets/icon.ico)
+![StorySepeti Banner](assets/icon.ico)
 
-# StoryVault — En Yüksek Kalitede Instagram Story & Highlight İndirici
+# StorySepeti — En Yüksek Kalitede Instagram Story & Highlight İndirici
 **Instagram story ve highlight'larını (öne çıkanlarını) hiçbir kalite kaybı olmadan, tam orijinal çözünürlüğünde (1080p+, orijinal fotoğraf boyutları, 60fps MP4/MKV) arşivleyin.**
 
 [![Python Sürümü](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
 [![Lisans](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-Windows%2010%20%7C%2011%20(x64)-0078D6.svg)]()
 [![Kalite](https://img.shields.io/badge/kalite-Ger%C3%A7ek%201080p%2B%20%7C%20Orijinal%20HQ-purple.svg)]()
-[![Sürüm](https://img.shields.io/badge/s%C3%BCr%C3%BCm-v1.0.0-orange.svg)](https://github.com/ersinsandal/StoryVault/releases)
+[![Sürüm](https://img.shields.io/badge/s%C3%BCr%C3%BCm-v1.0.0-orange.svg)](https://github.com/ersinsandal/StorySepeti/releases)
 
 [🇬🇧 **Click here for English Documentation (README.md)**](README.md) • [🇹🇷 **Türkçe Dokümantasyon**](#genel-bakış)
 
@@ -21,7 +21,7 @@
 
 ## 📑 İçindekiler
 1. [Genel Bakış](#genel-bakış)
-2. [Neden StoryVault? (720p Sınırı Nasıl Aşıldı?)](#neden-storyvault-720p-sınırı-nasıl-aşıldı)
+2. [Neden StorySepeti? (720p Sınırı Nasıl Aşıldı?)](#neden-storysepeti-720p-sınırı-nasıl-aşıldı)
 3. [Öne Çıkan Özellikler](#öne-çıkan-özellikler)
 4. [Mimari & İşlem Hattı](#mimari--işlem-hattı)
 5. [Kalite Motoru Teknik Detayları](#kalite-motoru-teknik-detayları)
@@ -40,9 +40,9 @@
 <a name="genel-bakış"></a>
 ## 💡 Genel Bakış
 
-**StoryVault**; Instagram profil highlight (öne çıkanlar) albümlerini ve 24 saatlik geçici story'leri mümkün olan en yüksek görüntü ve ses kalitesinde arşivlemek için geliştirilmiş, modern ve son kullanıcı dostu bir Windows masaüstü uygulamasıdır.
+**StorySepeti**; Instagram profil highlight (öne çıkanlar) albümlerini ve 24 saatlik geçici story'leri mümkün olan en yüksek görüntü ve ses kalitesinde arşivlemek için geliştirilmiş, modern ve son kullanıcı dostu bir Windows masaüstü uygulamasıdır.
 
-İnternetteki klasik indirme siteleri ya da basit scraper araçları çoğu zaman oturumsuz çalıştığı için kullanıcılara Instagram'ın düşük çözünürlüklü (480p/720p) önizleme akışlarını sunar. StoryVault ise bu kısıtlamaları aşmak için:
+İnternetteki klasik indirme siteleri ya da basit scraper araçları çoğu zaman oturumsuz çalıştığı için kullanıcılara Instagram'ın düşük çözünürlüklü (480p/720p) önizleme akışlarını sunar. StorySepeti ise bu kısıtlamaları aşmak için:
 - **Doğrudan Instagram Web API'si:** `curl_cffi` ile Chrome 124 TLS parmak izi taklidi yaparak yüksek hızda doğrudan CDN akışlarını çeker.
 - **Çok Aşamalı Yedek Motor (Fallback):** `yt-dlp` ve `gallery-dl` entegrasyonuyla API değişikliklerine karşı kesintisiz yedekleme sağlar.
 - **DASH Kayıpsız Akış Birleştirme:** Ayrık 1080p video ve ana ses akışlarını kalite kaybı olmadan MKV/MP4 formatında birleştirir.
@@ -51,12 +51,12 @@
 
 ---
 
-<a name="neden-storyvault-720p-sınırı-nasıl-aşıldı"></a>
-## 🔬 Neden StoryVault? (720p Sınırı Nasıl Aşıldı?)
+<a name="neden-storysepeti-720p-sınırı-nasıl-aşıldı"></a>
+## 🔬 Neden StorySepeti? (720p Sınırı Nasıl Aşıldı?)
 
 Piyasadaki hemen her çevrim içi Instagram indirici **"720p Tavanı"** sorunundan muzdariptir:
 
-| Özellik | Standart Web Araçları / Basit İndiriciler | StoryVault |
+| Özellik | Standart Web Araçları / Basit İndiriciler | StorySepeti |
 | :--- | :--- | :--- |
 | **Oturum Doğrulaması** | Yok (Anonim veya spam engeline takılan ortak proxy'ler) | Gerçek oturum çerezleri (`X-IG-App-ID` + DPAPI kasası) |
 | **Sorgulanan Uç Nokta** | Eski `reels_media` uç noktası veya ham HTML | Modern Web API'si + tam DASH akış manifest çözümlemesi |
@@ -66,7 +66,7 @@ Piyasadaki hemen her çevrim içi Instagram indirici **"720p Tavanı"** sorunund
 | **Veri Gizliliği** | Çerezlerin 3. taraf web sitelerine düz metin gönderilmesi | **%100 Yerel işleme**; telemetri yok; Windows DPAPI ile şifreli |
 
 ### Teknik Neden:
-Instagram, 1080p kalitesindeki videoları sunucu bant genişliğini optimize etmek amacıyla görüntü ve sesi birbirinden ayırarak (DASH akışları şeklinde) dağıtır. Basit araçlar bu iki akışı indirip senkronize birleştirecek donanıma sahip olmadıklarından, tarayıcılar için hazırlanan düşük kaliteli 720p önizleme MP4 dosyasına mecbur kalırlar. StoryVault, manifestteki tüm temsilcileri tarar, en yüksek bitrate'e sahip 1080p video ve en net ses akışını kayıpsız olarak birleştirir.
+Instagram, 1080p kalitesindeki videoları sunucu bant genişliğini optimize etmek amacıyla görüntü ve sesi birbirinden ayırarak (DASH akışları şeklinde) dağıtır. Basit araçlar bu iki akışı indirip senkronize birleştirecek donanıma sahip olmadıklarından, tarayıcılar için hazırlanan düşük kaliteli 720p önizleme MP4 dosyasına mecbur kalırlar. StorySepeti, manifestteki tüm temsilcileri tarar, en yüksek bitrate'e sahip 1080p video ve en net ses akışını kayıpsız olarak birleştirir.
 
 ---
 
@@ -108,7 +108,7 @@ Instagram, 1080p kalitesindeki videoları sunucu bant genişliğini optimize etm
 
 ```
   ┌────────────────────────────────────────────────────────┐
-  │                   StoryVault UI                        │
+  │                   StorySepeti UI                        │
   │     (CustomTkinter Modern Windows GUI / Tray)          │
   └──────────────────────────┬─────────────────────────────┘
                              │
@@ -159,7 +159,7 @@ Instagram, 1080p kalitesindeki videoları sunucu bant genişliğini optimize etm
 
 ### Video Seçim Stratejisi
 1. **Kısa Kenar Kuralı (`min(width, height) >= 1080`):** Instagram story'leri dikey ($1080 \times 1920$) formattadır. Kalite motoru genişliğe değil, kısa kenara bakar.
-2. **DASH Akış Birleştirme:** Instagram videoyu ve sesi ayrı akışlar halinde sunduğunda, StoryVault her iki akışı hiçbir yeniden kodlama (transcode) kaybı olmadan **MKV** veya **MP4** kapsayıcısında birleştirir.
+2. **DASH Akış Birleştirme:** Instagram videoyu ve sesi ayrı akışlar halinde sunduğunda, StorySepeti her iki akışı hiçbir yeniden kodlama (transcode) kaybı olmadan **MKV** veya **MP4** kapsayıcısında birleştirir.
 3. **Maksimum Bitrate (`-S res,br`):** Eşit çözünürlükler arasında her zaman en yüksek bitrate değerine sahip (en az sıkıştırılmış) akış tercih edilir.
 4. **FFprobe Denetimi:** Her video dosyası diske yazıldıktan sonra `ffprobe` ile taranır. Bozuk veya sıfır baytlık dosyalar anında tespit edilir.
 
@@ -173,7 +173,7 @@ Instagram, 1080p kalitesindeki videoları sunucu bant genişliğini optimize etm
 <a name="güvenlik-ve-gizlilik"></a>
 ## 🔐 Güvenlik ve Gizlilik
 
-StoryVault, **Sıfır Güven (Zero-Trust) ve Sıfır Telemetri** felsefesiyle tasarlanmıştır:
+StorySepeti, **Sıfır Güven (Zero-Trust) ve Sıfır Telemetri** felsefesiyle tasarlanmıştır:
 
 - **Windows DPAPI Koruması:** Instagram çerezleriniz asla diske açık metin (plaintext) olarak kaydedilmez. Windows hesabınızın güvenlik anahtarına bağlı `CryptProtectData` (DPAPI) ile şifrelenir ve `session.enc` dosyasında tutulur. Dosya başka bir bilgisayara kopyalansa dahi çözülemez.
 - **Harici Sunucu Yok:** Uygulama üçüncü taraf hiçbir sunucuya veri göndermez. Tüm iletişim doğrudan sizin bilgisayarınız ile resmi Instagram/Facebook sunucuları arasında gerçekleşir.
@@ -188,8 +188,8 @@ StoryVault, **Sıfır Güven (Zero-Trust) ve Sıfır Telemetri** felsefesiyle ta
 ### Yöntem 1: Bağımsız Windows EXE (Tavsiye Edilen)
 
 Python veya komut satırı bilmenize gerek yoktur:
-1. En son sürümü [Releases](https://github.com/ersinsandal/StoryVault/releases) sayfasından indirin (veya projedeki `dist/StoryVault/` klasörüne gidin).
-2. **`StoryVault.exe`** dosyasına çift tıklayarak çalıştırın.
+1. En son sürümü [Releases](https://github.com/ersinsandal/StorySepeti/releases) sayfasından indirin (veya projedeki `dist/StorySepeti/` klasörüne gidin).
+2. **`StorySepeti.exe`** dosyasına çift tıklayarak çalıştırın.
 3. **Giriş Sihirbazı** üzerinden Instagram hesabınıza giriş yapın.
 4. Linkinizi yapıştırıp **İndir** butonuna tıklayın!
 
@@ -205,8 +205,8 @@ Python veya komut satırı bilmenize gerek yoktur:
 #### Kurulum Adımları:
 ```powershell
 # 1. Depoyu klonlayın
-git clone https://github.com/ersinsandal/StoryVault.git
-cd StoryVault
+git clone https://github.com/ersinsandal/StorySepeti.git
+cd StorySepeti
 
 # 2. Sanal ortam oluşturun ve aktif edin
 python -m venv venv
@@ -215,8 +215,8 @@ python -m venv venv
 # 3. Bağımlılıkları yükleyin
 pip install -r requirements.txt
 
-# 4. StoryVault'u başlatın
-python StoryVaultPro.py
+# 4. StorySepeti'u başlatın
+python StorySepetiPro.py
 ```
 
 ---
@@ -229,19 +229,19 @@ Proje içerisinde yer alan PyInstaller betiği ile tek tıkla kendi bağımsız 
 build.bat
 ```
 
-Derleme bittiğinde tıkla-çalıştır paketiniz `dist\StoryVault\StoryVault.exe` konumunda hazır olacaktır.
+Derleme bittiğinde tıkla-çalıştır paketiniz `dist\StorySepeti\StorySepeti.exe` konumunda hazır olacaktır.
 
 ---
 
 <a name="oturum--çerez-yönetimi"></a>
 ## 🔑 Oturum & Çerez Yönetimi
 
-Instagram aktif story'leri ve highlight'ları görüntülemek için oturum zorunluluğu uygular. StoryVault size 3 güvenli yöntem sunar:
+Instagram aktif story'leri ve highlight'ları görüntülemek için oturum zorunluluğu uygular. StorySepeti size 3 güvenli yöntem sunar:
 
 1. **Seçenek A: Canlı Etkileşimli Tarayıcı Girişi (En Kolayı)**
    - `Giriş Sihirbazı`nı açın.
    - `[🌐 Tarayıcıda Instagram'ı Aç]` butonuna basın.
-   - Açılan pencerede normal şekilde hesabınıza girin; StoryVault oturumu otomatik olarak algılayıp şifreler.
+   - Açılan pencerede normal şekilde hesabınıza girin; StorySepeti oturumu otomatik olarak algılayıp şifreler.
 2. **Seçenek B: Tarayıcıdan Tek Tıkla Aktarma**
    - Bilgisayarınızdaki Chrome, Edge, Firefox, Brave veya Opera'da Instagram açıksa `[⚡ Oturumu Aktar]` butonuna basın.
 3. **Seçenek C: cookies.txt Dosyası Yükleme**
@@ -253,15 +253,15 @@ Instagram aktif story'leri ve highlight'ları görüntülemek için oturum zorun
 ## 📁 Proje Dizin Yapısı
 
 ```
-StoryVault/
-├── StoryVaultPro.py              # Uygulama ana giriş noktası
+StorySepeti/
+├── StorySepetiPro.py              # Uygulama ana giriş noktası
 ├── build.bat                     # Windows PyInstaller otomatik derleme betiği
-├── storyvault.manifest           # Windows güvenlik ve DPI uyumluluk manifesti
+├── storysepeti.manifest           # Windows güvenlik ve DPI uyumluluk manifesti
 ├── version_info.txt              # EXE sürüm ve telif metaverileri
 ├── requirements.txt              # Python kütüphane bağımlılıkları
 ├── assets/                       # İkon ve tema dosyaları
 │   └── icon.ico
-├── storyvault/                   # Ana uygulama paketi
+├── storysepeti/                   # Ana uygulama paketi
 │   ├── app.py                    # Uygulama ana denetleyicisi
 │   ├── config/                   # Ayarlar motoru (JSON tabanlı)
 │   ├── cookies/                  # Güvenlik ve çerez katmanı (DPAPI)
@@ -270,7 +270,7 @@ StoryVault/
 │   ├── i18n/                     # Türkçe ve İngilizce dil çevirileri
 │   └── utils/                    # Yardımcı modüller (Dosya adlandırma, Pano, Bildirim)
 └── tests/                        # Otomatik birim testleri
-    └── test_storyvault.py
+    └── test_storysepeti.py
 ```
 
 ---
@@ -279,13 +279,13 @@ StoryVault/
 ## ❓ Sıkça Sorulan Sorular (SSS) & Sorun Giderme
 
 #### S: Gizli hesapların story veya highlight'larını indirebilir miyim?
-**C:** Evet! Giriş yaptığınız Instagram hesabı o gizli hesabı takip ediyorsa, StoryVault izinli olduğunuz tüm içerikleri en yüksek kalitede indirebilir.
+**C:** Evet! Giriş yaptığınız Instagram hesabı o gizli hesabı takip ediyorsa, StorySepeti izinli olduğunuz tüm içerikleri en yüksek kalitede indirebilir.
 
 #### S: "Çerezler geçersiz veya süresi dolmuş" uyarısı alırsam ne yapmalıyım?
 **C:** Tarayıcınızdan çıkış yaptığınızda Instagram eski çerezleri geçersiz kılar. **Giriş Sihirbazı**'nı açıp oturumunuzu tek tıkla yenilemeniz yeterlidir.
 
 #### S: Instagram şifrem herhangi bir yere kaydediliyor mu?
-**C:** **Kesinlikle hayır.** StoryVault şifrenizi asla istemez, görmez ve kaydetmez. Yalnızca tarayıcınızın açık oturumunu koruyan şifreli `sessionid` çerezini yerel Windows kasasında tutar.
+**C:** **Kesinlikle hayır.** StorySepeti şifrenizi asla istemez, görmez ve kaydetmez. Yalnızca tarayıcınızın açık oturumunu koruyan şifreli `sessionid` çerezini yerel Windows kasasında tutar.
 
 #### S: Bilgisayarımdan üçüncü taraf sunuculara veri aktarılıyor mu?
 **C:** **Sıfır veri transferi.** Uygulama tamamen çevrim dışı güvenlik modelindedir; telemetri, izleme veya harici veri tabanı içermez. Tüm iletişim doğrudan sizin bilgisayarınız ile Instagram sunucuları arasındadır.

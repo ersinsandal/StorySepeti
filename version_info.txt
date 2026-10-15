@@ -1,6 +1,6 @@
 # UTF-8
 #
-# StoryVault Windows Executable Metadata
+# StorySepeti Windows Executable Metadata
 #
 VSVersionInfo(
   ffi=FixedFileInfo(
@@ -19,13 +19,13 @@ VSVersionInfo(
         StringTable(
           '040904B0',
           [
-            StringStruct('CompanyName', 'StoryVault'),
+            StringStruct('CompanyName', 'StorySepeti'),
             StringStruct('FileDescription', 'Instagram Story & Highlight Max Quality Downloader'),
             StringStruct('FileVersion', '1.0.0.0'),
-            StringStruct('InternalName', 'StoryVault'),
-            StringStruct('LegalCopyright', 'Copyright (C) 2026 StoryVault. All rights reserved.'),
-            StringStruct('OriginalFilename', 'StoryVault.exe'),
-            StringStruct('ProductName', 'StoryVault'),
+            StringStruct('InternalName', 'StorySepeti'),
+            StringStruct('LegalCopyright', 'Copyright (C) 2026 StorySepeti. All rights reserved.'),
+            StringStruct('OriginalFilename', 'StorySepeti.exe'),
+            StringStruct('ProductName', 'StorySepeti'),
             StringStruct('ProductVersion', '1.0.0.0')
           ]
         )
